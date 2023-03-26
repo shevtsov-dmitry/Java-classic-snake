@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="created project and added few main classes.">
+    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="set up the game field and snake head&#10;also set up icon for the game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnakeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <updated>1679777327988</updated>
       <workItem from="1679777329462" duration="666000" />
       <workItem from="1679824170882" duration="826000" />
-      <workItem from="1679870664643" duration="2557000" />
+      <workItem from="1679870664643" duration="3581000" />
     </task>
     <task id="LOCAL-00001" summary="created project and added few main classes.">
       <created>1679870721111</created>
@@ -82,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679870721111</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="set up the game field and snake head&#10;also set up icon for the game.">
+      <created>1679873641137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679873641137</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created project and added few main classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="created project and added few main classes." />
+    <MESSAGE value="set up the game field and snake head&#10;also set up icon for the game." />
+    <option name="LAST_COMMIT_MESSAGE" value="set up the game field and snake head&#10;also set up icon for the game." />
   </component>
 </project>
