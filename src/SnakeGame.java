@@ -22,15 +22,24 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     protected int x_snake_pos = FIELD_WIDTH/2 - ELEMENT_WIDTH;
     protected int y_snake_pos = FIELD_HEIGHT/2 - ELEMENT_HEIGHT;
     // apple
-    protected int applePosition = (int) Math.floor(Math.random() * FIELD_HEIGHT - ELEMENT_HEIGHT);
+    protected int applePosition = randomize();
+    // FIXME
+    // randomizer doesn't follow the convention of 25 element size
+    // so it can be even 437 instead of 425 or 450
+    public int randomize(){
+        return (int) Math.floor(Math.random() * FIELD_HEIGHT - ELEMENT_HEIGHT);
+    }
     //Timer
-    protected final double GAME_SPEED = 0.75; // in seconds
+    protected final double GAME_SPEED = 0.15; // in seconds
     Timer timer = new Timer((int) (GAME_SPEED * 1000),this);
     // game events
     @Override
     public void actionPerformed(ActionEvent e) {
         // spawn apple
 
+        // FIXME
+        // I need to fix invisible margin after coming through the border
+        // and also blinking near the wall
         // border interactions
         if(y_snake_pos == FIELD_HEIGHT) y_snake_pos = 0;
         else if(x_snake_pos == FIELD_WIDTH) x_snake_pos = 0;
@@ -50,6 +59,16 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         if(down) {
             y_snake_pos += ELEMENT_HEIGHT;
         }
+
+        // change apple position after snake picked apple up
+        // TODO
+        // this code wouldn't work until I fix apple randomizer
+        if(x_snake_pos == applePosition || y_snake_pos == applePosition){
+            applePosition = randomize();
+            repaint();
+            System.out.println("GOT YOU !");
+        }
+
 
         repaint();
     }
@@ -87,6 +106,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
 
     // check which button is currently pressed
     protected boolean right, left, up, down;
+    // FIXME
+    // need to repair the possibility to turn back  
     @Override
     public void keyPressed(KeyEvent e) { // key int
         switch(e.getKeyCode()){
