@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="Added important parameter variables.&#10;Fixed bad movement.">
-      <change afterPath="$PROJECT_DIR$/src/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="Made snake pass and comeback the borders of game field.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame.java" afterDir="false" />
     </list>
@@ -77,7 +75,7 @@
       <workItem from="1679925101388" duration="1411000" />
       <workItem from="1679939629021" duration="11000" />
       <workItem from="1680032170626" duration="4182000" />
-      <workItem from="1680036860543" duration="169000" />
+      <workItem from="1680036860543" duration="575000" />
     </task>
     <task id="LOCAL-00001" summary="created project and added few main classes.">
       <created>1679870721111</created>
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680033853926</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made snake pass and comeback the borders of game field.">
+      <created>1680037038119</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680037038119</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +142,7 @@
     <MESSAGE value="set up the key and action listeners, but they didn't work." />
     <MESSAGE value="Added movement to snake." />
     <MESSAGE value="Added important parameter variables.&#10;Fixed bad movement." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added important parameter variables.&#10;Fixed bad movement." />
+    <MESSAGE value="Made snake pass and comeback the borders of game field." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made snake pass and comeback the borders of game field." />
   </component>
 </project>

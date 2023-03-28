@@ -22,7 +22,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     protected int x_snake_pos = FIELD_WIDTH/2 - ELEMENT_WIDTH;
     protected int y_snake_pos = FIELD_HEIGHT/2 - ELEMENT_HEIGHT;
     // apple
-
+    protected int applePosition = (int) Math.floor(Math.random() * FIELD_HEIGHT - ELEMENT_HEIGHT);
     //Timer
     protected final double GAME_SPEED = 0.75; // in seconds
     Timer timer = new Timer((int) (GAME_SPEED * 1000),this);
@@ -50,7 +50,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         if(down) {
             y_snake_pos += ELEMENT_HEIGHT;
         }
-        // managing the collision with the walls
 
         repaint();
     }
@@ -67,6 +66,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         gg.fillRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);
         gg.setColor(Color.white);
         gg.drawRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);
+        // draw apple
+        gg.setPaint(new Color(99, 206, 12));
+        gg.fillOval(applePosition,applePosition,ELEMENT_WIDTH,ELEMENT_HEIGHT);
     }
 
     // setup
