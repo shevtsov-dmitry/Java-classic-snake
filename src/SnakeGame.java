@@ -9,23 +9,26 @@ import java.awt.event.KeyListener;
 public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     private SnakeView game;
     // game elements
-    private int ELEMENT_HEIGHT = 25;
-    private int ELEMENT_WIDTH = 25;
+    private final int ELEMENT_HEIGHT = 25;
+    private final int ELEMENT_WIDTH = 25;
+    private int snake_height = ELEMENT_HEIGHT;
+    private int snake_width = ELEMENT_WIDTH;
+
     // Field sizes
     private final int DIMENSION_MULTIPLIER = 20;
     private final int FIELD_HEIGHT = ELEMENT_HEIGHT * DIMENSION_MULTIPLIER;
     private final int FIELD_WIDTH = ELEMENT_WIDTH * DIMENSION_MULTIPLIER;
 
     //Timer
-    private final double GAME_SPEED = 0.3; // in seconds
+    private final double GAME_SPEED = 1; // in seconds
     Timer timer = new Timer((int) (GAME_SPEED * 1000),this);
 
     SnakeGame() {
         // setting field size
         this.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
         this.setFocusable(true);
-        //this.addKeyListener(this);
-        //timer.start();
+        this.addKeyListener(this);
+        timer.start();
     }
     @Override
     public void paint(Graphics g){
@@ -35,8 +38,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         gg.fillRect(0,0,FIELD_WIDTH,FIELD_HEIGHT);
         // draw snake head
         gg.setPaint(Color.red);
-        gg.fillRect(FIELD_WIDTH/2 - ELEMENT_WIDTH,FIELD_HEIGHT/2 - ELEMENT_HEIGHT,ELEMENT_WIDTH ,ELEMENT_HEIGHT);
-        //
+        gg.fillRect(FIELD_WIDTH/2 - ELEMENT_WIDTH,FIELD_HEIGHT/2 - ELEMENT_HEIGHT,snake_width ,snake_height);
+        gg.setColor(Color.white);
+        gg.drawRect(FIELD_WIDTH/2 - ELEMENT_WIDTH, FIELD_HEIGHT/2 - ELEMENT_HEIGHT, snake_width, snake_height);
     }
 
     // key handler methods
@@ -48,35 +52,44 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     @Override
     public void keyPressed(KeyEvent e) { // key int
         switch(e.getKeyCode()){
-            case 37 -> {
+            case 37 -> { //left
                 left = true;
                 right = false; down = false; up = false;
-            }//left
-            case 38 -> {
+            }
+            case 38 -> { //up
                 up = true;
                 right = false; down = false; left = false;
-            }//up
-            case 40 -> {
+            }
+            case 40 -> { //down
                 down = true;
                 right = false; up = false; left = false;
-            }//down
-            case 39 -> {
+            }
+            case 39 -> { //right
                 right = true;
                 up = false; down = false; left = false;
-            }//right
+            }
         }
     }
     @Override
     public void keyReleased(KeyEvent e) { // key when released
-//        System.out.println("you typed key int: " + e.getKeyCode());
+        System.out.println("you typed key int: " + e.getKeyCode());
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         // change direction
-        if(right) ELEMENT_WIDTH += ELEMENT_WIDTH;
-        if(left) ELEMENT_WIDTH -= ELEMENT_WIDTH;
-        if(up) ELEMENT_HEIGHT -= ELEMENT_HEIGHT;
-        if(down) ELEMENT_HEIGHT += ELEMENT_HEIGHT;
+        if(right) {
+            snake_width += ELEMENT_WIDTH;
+        }
+        if(left) {
+            snake_width -= ELEMENT_WIDTH;
+        }
+        if(up) {
+            snake_height -= ELEMENT_HEIGHT;
+        }
+        if(down) {
+            snake_height += ELEMENT_HEIGHT;
+
+        }
         // managing the collision with the walls
         repaint();
     }
