@@ -11,16 +11,19 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     // game elements
     private final int ELEMENT_HEIGHT = 25;
     private final int ELEMENT_WIDTH = 25;
-    private int snake_height = ELEMENT_HEIGHT;
-    private int snake_width = ELEMENT_WIDTH;
 
     // Field sizes
     private final int DIMENSION_MULTIPLIER = 20;
     private final int FIELD_HEIGHT = ELEMENT_HEIGHT * DIMENSION_MULTIPLIER;
     private final int FIELD_WIDTH = ELEMENT_WIDTH * DIMENSION_MULTIPLIER;
 
+    // snake mutable parameters
+    private int snake_height = ELEMENT_HEIGHT;
+    private int snake_width = ELEMENT_WIDTH;
+    private int x_snake_pos = FIELD_WIDTH/2 - ELEMENT_WIDTH;
+    private int y_snake_pos = FIELD_HEIGHT/2 - ELEMENT_HEIGHT;
     //Timer
-    private final double GAME_SPEED = 1; // in seconds
+    private final double GAME_SPEED = 0.5; // in seconds
     Timer timer = new Timer((int) (GAME_SPEED * 1000),this);
 
     SnakeGame() {
@@ -38,10 +41,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         gg.fillRect(0,0,FIELD_WIDTH,FIELD_HEIGHT);
         // draw snake head
         gg.setPaint(Color.red);
-        gg.fillRect(FIELD_WIDTH/2 - ELEMENT_WIDTH,FIELD_HEIGHT/2 - ELEMENT_HEIGHT,snake_width ,snake_height);
+        gg.fillRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);
         gg.setColor(Color.white);
-        gg.drawRect(FIELD_WIDTH/2 - ELEMENT_WIDTH, FIELD_HEIGHT/2 - ELEMENT_HEIGHT, snake_width, snake_height);
-    }
+        gg.drawRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);    }
 
     // key handler methods
 
@@ -78,16 +80,16 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     public void actionPerformed(ActionEvent e) {
         // change direction
         if(right) {
-            snake_width += ELEMENT_WIDTH;
+            x_snake_pos += ELEMENT_WIDTH;
         }
         if(left) {
-            snake_width -= ELEMENT_WIDTH;
+            x_snake_pos -= ELEMENT_WIDTH;
         }
         if(up) {
-            snake_height -= ELEMENT_HEIGHT;
+            y_snake_pos -= ELEMENT_HEIGHT;
         }
         if(down) {
-            snake_height += ELEMENT_HEIGHT;
+            y_snake_pos += ELEMENT_HEIGHT;
 
         }
         // managing the collision with the walls
