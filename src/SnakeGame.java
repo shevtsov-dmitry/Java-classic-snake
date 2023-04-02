@@ -10,11 +10,14 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     // game elements
     protected final int ELEMENT_HEIGHT = 25;
     protected final int ELEMENT_WIDTH = 25;
+    protected final int ELEMENT_PERIMETER = (ELEMENT_HEIGHT + ELEMENT_WIDTH) / 2;
+    protected final int ELEMENT_BORDER_SIZE = 1;
 
     // Field sizes
     protected final int DIMENSION_MULTIPLIER = 25;
     protected final int FIELD_HEIGHT = ELEMENT_HEIGHT * DIMENSION_MULTIPLIER;
     protected final int FIELD_WIDTH = ELEMENT_WIDTH * DIMENSION_MULTIPLIER;
+    protected final int FIELD_PERIMETER = (FIELD_HEIGHT + FIELD_WIDTH) / 2;
 
     // snake mutable parameters
     protected int snake_height = ELEMENT_HEIGHT;
@@ -27,7 +30,14 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     // randomizer doesn't follow the convention of 25 element size
     // so it can be even 437 instead of 425 or 450
     public int randomize(){
-        return (int) Math.floor(Math.random() * FIELD_HEIGHT - ELEMENT_HEIGHT);
+        int range = FIELD_PERIMETER / ELEMENT_PERIMETER;
+        int randInRange = (int) Math.floor(Math.random() * range);
+        // TODO
+        // stopped here with a great idea to add @ELEMENT_BORDER_SIZE
+        // for each 25th, which were been generated during Math.random()
+        int addTo = randInRange / ELEMENT_PERIMETER;
+        System.out.println(randInRange * ELEMENT_PERIMETER + ELEMENT_BORDER_SIZE);
+        return randInRange * ELEMENT_PERIMETER + ELEMENT_BORDER_SIZE * addTo;
     }
     //Timer
     protected final double GAME_SPEED = 0.5; // in seconds
@@ -47,7 +57,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         else if(x_snake_pos < 0) x_snake_pos = FIELD_WIDTH;
 
         // auxiliary construction to not leave element size restriction
-        final int ELEMENT_BORDER_SIZE = 1;
         // change direction
         if(right) {
             x_snake_pos += ELEMENT_WIDTH + ELEMENT_BORDER_SIZE;
@@ -70,7 +79,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
             repaint();
             System.out.println("GOT YOU !");
         }
-
 
         repaint();
     }
