@@ -12,7 +12,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     protected final int ELEMENT_WIDTH = 25;
 
     // Field sizes
-    protected final int DIMENSION_MULTIPLIER = 20;
+    protected final int DIMENSION_MULTIPLIER = 25;
     protected final int FIELD_HEIGHT = ELEMENT_HEIGHT * DIMENSION_MULTIPLIER;
     protected final int FIELD_WIDTH = ELEMENT_WIDTH * DIMENSION_MULTIPLIER;
 
@@ -30,7 +30,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         return (int) Math.floor(Math.random() * FIELD_HEIGHT - ELEMENT_HEIGHT);
     }
     //Timer
-    protected final double GAME_SPEED = 0.15; // in seconds
+    protected final double GAME_SPEED = 0.5; // in seconds
     Timer timer = new Timer((int) (GAME_SPEED * 1000),this);
     // game events
     @Override
@@ -46,18 +46,20 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         else if(y_snake_pos < 0) y_snake_pos = FIELD_HEIGHT;
         else if(x_snake_pos < 0) x_snake_pos = FIELD_WIDTH;
 
+        // auxiliary construction to not leave element size restriction
+        final int ELEMENT_BORDER_SIZE = 1;
         // change direction
         if(right) {
-            x_snake_pos += ELEMENT_WIDTH;
+            x_snake_pos += ELEMENT_WIDTH + ELEMENT_BORDER_SIZE;
         }
         if(left) {
-            x_snake_pos -= ELEMENT_WIDTH;
+            x_snake_pos -= ELEMENT_WIDTH + ELEMENT_BORDER_SIZE;
         }
         if(up) {
-            y_snake_pos -= ELEMENT_HEIGHT;
+            y_snake_pos -= ELEMENT_HEIGHT + ELEMENT_BORDER_SIZE;
         }
         if(down) {
-            y_snake_pos += ELEMENT_HEIGHT;
+            y_snake_pos += ELEMENT_HEIGHT + ELEMENT_BORDER_SIZE;
         }
 
         // change apple position after snake picked apple up
@@ -80,11 +82,18 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         // draw game field
         gg.setPaint(Color.darkGray);
         gg.fillRect(0,0,FIELD_WIDTH,FIELD_HEIGHT);
+        // draw field element borders
+        gg.setPaint(new Color(154, 154, 154, 255));
+        for (int i = 0; i < FIELD_HEIGHT; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                gg.drawRect(i,j,ELEMENT_WIDTH,ELEMENT_HEIGHT);
+                j+=ELEMENT_WIDTH;
+            }
+            i+=ELEMENT_HEIGHT;
+        }
         // draw snake head
         gg.setPaint(Color.red);
         gg.fillRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);
-        gg.setColor(Color.white);
-        gg.drawRect(x_snake_pos,y_snake_pos,snake_width ,snake_height);
         // draw apple
         gg.setPaint(new Color(99, 206, 12));
         gg.fillOval(applePosition,applePosition,ELEMENT_WIDTH,ELEMENT_HEIGHT);

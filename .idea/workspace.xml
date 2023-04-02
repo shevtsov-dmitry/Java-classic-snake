@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="Wrote apple spawn logic on the map.">
+    <list default="true" id="e5d2cd88-61d4-4e48-89f2-c1bde421cc88" name="Changes" comment="Stopped work with unfinished randomizer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame.java" afterDir="false" />
     </list>
@@ -75,7 +75,10 @@
       <workItem from="1679925101388" duration="1411000" />
       <workItem from="1679939629021" duration="11000" />
       <workItem from="1680032170626" duration="4182000" />
-      <workItem from="1680036860543" duration="1307000" />
+      <workItem from="1680036860543" duration="1964000" />
+      <workItem from="1680256713305" duration="21000" />
+      <workItem from="1680260204599" duration="66000" />
+      <workItem from="1680463971034" duration="1969000" />
     </task>
     <task id="LOCAL-00001" summary="created project and added few main classes.">
       <created>1679870721111</created>
@@ -126,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680037449280</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Stopped work with unfinished randomizer">
+      <created>1680038183689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680038183689</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +161,7 @@
     <MESSAGE value="Added important parameter variables.&#10;Fixed bad movement." />
     <MESSAGE value="Made snake pass and comeback the borders of game field." />
     <MESSAGE value="Wrote apple spawn logic on the map." />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote apple spawn logic on the map." />
+    <MESSAGE value="Stopped work with unfinished randomizer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stopped work with unfinished randomizer" />
   </component>
 </project>
